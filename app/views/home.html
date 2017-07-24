@@ -1,10 +1,28 @@
-<h1 class="heading -large">{{ home.title | ExampleFilter }}</h1>
+<div id="wrap">
+		<header>
+			<span class="list-style-buttons">
+				<a href="#" id="gridview" class="switcher"><img src="images/grid-view.png" alt="Grid"></a>
+				<a href="#" id="listview" class="switcher active"><img src="images/list-view-active.png" alt="List"></a>
+			</span>
+			<h1>User List</h1>
 
-<h3 class="heading -medium">Here is a fancy number served up courtesy of Angular: <span class="number-example">{{ home.number }}</span></h3>
-
-<img src="images/angular.png" height="100" />
-<img src="images/gulp.png" height="100" />
-<img src="images/browserify.png" height="100" />
-
-<hr/>
-<div example-directive title="WOW!" click-message="You clicked me!">Directive is not loaded.</div>
+		</header>
+		
+		<ul id="products" class="list clearfix" ng-repeat="users in userList">
+			<!-- row 1 -->
+			<li class="clearfix">
+				<section class="left">
+					<img src="{{users.avatar_url}}" alt="default thumb" class="thumb">
+					<h3>{{users.login}}</h3>
+					<span class="meta">Name: {{users.name}}</span><br>
+					<span class="meta">Location: {{users.location}}</span><br>
+					<span class="meta">Followers: {{users.followers}}</span><br>
+					<span class="meta">Following: {{users.following}}</span>
+				</section>
+			</li>			
+		</ul>
+		
+		<footer>
+			&nbsp;
+		</footer>
+	</div>

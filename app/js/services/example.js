@@ -1,23 +1,21 @@
 function ExampleService($http) {
-  'ngInject';
+    'ngInject';
 
-  const service = {};
+    const service = {};
 
-  service.get = function() {
-    return new Promise((resolve, reject) => {
-      $http.get('apiPath').success((data) => {
-        resolve(data);
-      }).error((err, status) => {
-        reject(err, status);
-      });
-    });
-  };
+    service.getUsers = function() {
+        return $http.get('https://api.github.com/users')
+    };
 
-  return service;
+    service.getUsersInfo = function(id) {
+        return $http.get('https://api.github.com/users/' + id)
+    };
+
+    return service;
 
 }
 
 export default {
-  name: 'ExampleService',
-  fn: ExampleService
+    name: 'ExampleService',
+    fn: ExampleService
 };
